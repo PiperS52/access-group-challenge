@@ -8,17 +8,38 @@
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  will-change: filter, transform;
+  transition: filter 300ms, transform 300ms;
 }
 
-@keyframes logo-spin {
+.container {
+  transition: all .3s ease-in-out;
+}
+.container:hover {
+  transform: scale(1.5);
+}
+
+.button {
+  padding: 1em 2em;
+  margin: 3em;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.button.two {
+  background-color: #646cff;
+  border-color: #61dafb;
+}
+.button.one {
+  background-color: #fb61d2;
+  border-color: #61dafb;
+}
+
+@keyframes logo-spin-clockwise {
   from {
     transform: rotate(0deg);
   }
@@ -27,9 +48,12 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes logo-spin-counterclockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
   }
 }
 
@@ -39,4 +63,36 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+/* sidebar */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-content {
+  padding: 1em;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 1em;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.full-width {
+  margin-left: 0;
 }
